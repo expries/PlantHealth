@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="AutoMapper" Version="12.0.1" />
+    <PackageVersion Include="Lamar" Version="10.0.2" />
+  </ItemGroup>
+</Project>
