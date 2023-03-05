@@ -1,10 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+	</PropertyGroup>
     <ItemGroup>
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
     </ItemGroup>
     <ItemGroup>
+      <PackageReference Include="AutoBogus" />
       <PackageReference Include="Confluent.Kafka" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Kafka.Library\Kafka.Library.csproj" />
     </ItemGroup>
 </Project>

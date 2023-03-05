@@ -1,63 +1,64 @@
 ﻿using System;
-using System.Threading;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 using Confluent.Kafka;
+
+using Kafka.Library;
 
 namespace Kafka.Consumer;
 
 public class Program
 {
-    public static void Main(string[] args)
+    private const string Topic = "PlantHealth";
+    private const int MaxSleep = 3000;
+    private readonly Random _random;
+
+    private readonly ConsumerConfig _consumerConfig;
+
+    public Program()
     {
-        Thread t1 = new Thread(() =>
-                               {
-                                   Thread.Sleep(5000);
-                                   string topic = "plantHealth";
-                                   ProducerConfig producerConfig = new ProducerConfig
-                                                                   {
-                                                                       BootstrapServers = "localhost:9092",
-                                                                       Acks = Acks.All,
-                                                                       QueueBufferingMaxMessages = 100_000
-                                                                   };
+        _consumerConfig = new ConsumerConfig
+                         {
+                             BootstrapServers = "localhost:9092",
+                             GroupId = "someId",
+                             AutoOffsetReset = AutoOffsetReset.Earliest
+                         };
 
-                                   using IProducer<Null, string>? producer = new ProducerBuilder<Null, string>(producerConfig).Build();
-                                   while (true)
-                                       producer.Produce(topic, new Message<Null, string> { Value = "test" });
-                               });
+        _random = new Random(Guid.NewGuid().GetHashCode());
+    }
 
-        Console.WriteLine("Hello World!");
+    public static Task Main(string[] args)
+    {
+        return new Program().MainAsync();
+    }
 
-        Thread t2 = new Thread(() =>
-                               {
-                                   string topic = "plantHealth";
+    private async Task MainAsync()
+    {
+        using IConsumer<Null, string>? consumer = new ConsumerBuilder<Null, string>(_consumerConfig).Build();
+        consumer.Subscribe(Topic);
 
-                                   ConsumerConfig consumerConfig = new ConsumerConfig
-                                                                   {
-                                                                       BootstrapServers = "localhost:9092",
-                                                                       GroupId = "someId",
-                                                                       AutoOffsetReset = AutoOffsetReset.Earliest
-                                                                   };
-                                   using (IConsumer<Null, string>? consumer = new ConsumerBuilder<Null, string>(consumerConfig).Build())
-                                   {
-                                       consumer.Subscribe(topic);
+        while (!Console.KeyAvailable || Console.ReadKey().Key != ConsoleKey.Enter)
+        {
+            ConsumeResult<Null, string>? consumeResult = consumer.Consume();
+            PrintData(consumeResult);
+            await Task.Delay(_random.Next(MaxSleep));
+        }
 
-                                       while (true)
-                                       {
-                                           ConsumeResult<Null, string>? consumeResult = consumer.Consume();
+        consumer.Close();
+    }
 
-                                           // handle consumed message.
-                                           int i = 0;
-                                           i = i + 5;
-                                       }
+    private void PrintData(ConsumeResult<Null, string> consumeResult)
+    {
+        SensorData? sensorData = JsonSerializer.Deserialize<SensorData>(consumeResult.Message.Value);
 
-                                       consumer.Close();
-                                   }
-                               });
-
-        t1.Start();
-        t2.Start();
-
-        t2.Join();
-        t1.Join();
+        if (sensorData is null)
+        {
+            Console.WriteLine($"Message is corrupted");
+            return;
+        }
+        
+        Console.WriteLine($"Topic: {consumeResult.Topic}" +
+                          $"\n{sensorData}\n\n");
     }
 }

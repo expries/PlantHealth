@@ -1,5 +1,5 @@
 <Project>
-  <PropertyGroup Label="Globals">
+  <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
 
