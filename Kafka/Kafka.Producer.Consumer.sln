@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kafka.Producer", "Kafka.Producer\Kafka.Producer.csproj", "{4693C58B-A3EC-4771-8598-1CB06CDBB4C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build Settings", "Build Settings", "{71DD92C4-A9A9-4017-AC7E-224088078B6D}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kafka.Consumer", "Kafka.Consumer\Kafka.Consumer.csproj", "{78D6A625-B350-4191-8306-1F87B7EFE329}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kafka.Library", "Kafka.Library\Kafka.Library.csproj", "{7780B9A0-36E3-4CF6-BDAD-6275ADDDB379}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4693C58B-A3EC-4771-8598-1CB06CDBB4C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4693C58B-A3EC-4771-8598-1CB06CDBB4C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4693C58B-A3EC-4771-8598-1CB06CDBB4C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4693C58B-A3EC-4771-8598-1CB06CDBB4C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78D6A625-B350-4191-8306-1F87B7EFE329}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78D6A625-B350-4191-8306-1F87B7EFE329}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78D6A625-B350-4191-8306-1F87B7EFE329}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78D6A625-B350-4191-8306-1F87B7EFE329}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7780B9A0-36E3-4CF6-BDAD-6275ADDDB379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7780B9A0-36E3-4CF6-BDAD-6275ADDDB379}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7780B9A0-36E3-4CF6-BDAD-6275ADDDB379}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7780B9A0-36E3-4CF6-BDAD-6275ADDDB379}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
