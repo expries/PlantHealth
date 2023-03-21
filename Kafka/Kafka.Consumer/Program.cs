@@ -22,7 +22,7 @@ public class Program
                          {
                              BootstrapServers = "localhost:9092",
                              GroupId = "someId",
-                             AutoOffsetReset = AutoOffsetReset.Earliest
+                             AutoOffsetReset = AutoOffsetReset.Earliest,
                          };
 
         _random = new Random(Guid.NewGuid().GetHashCode());
