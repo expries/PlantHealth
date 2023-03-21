@@ -17,19 +17,20 @@ public class Program
     private Program()
     {
         _producer = new SensorDataProducer(
-            new TopicSpecification 
+            new TopicSpecification
             {
-                Name = "PlantHealth", 
+                Name = "PlantHealth",
                 NumPartitions = 3,
                 ReplicationFactor = 3
-            }, 
+            },
             new ProducerConfig
-             {
-                 BootstrapServers = "localhost:9092",
-                 Acks = Acks.All,
-                 QueueBufferingMaxMessages = 100_000,
-                 AllowAutoCreateTopics = false
-             });
+            {
+                BootstrapServers = "localhost:9092",
+                Acks = Acks.All,
+                QueueBufferingMaxMessages = 100_000,
+                AllowAutoCreateTopics = false
+            });
+
     }
 
     public static Task Main(string[] args)
