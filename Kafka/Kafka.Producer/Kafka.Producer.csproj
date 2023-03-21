@@ -10,6 +10,7 @@
     <ItemGroup>
       <PackageReference Include="AutoBogus" />
       <PackageReference Include="Confluent.Kafka" />
+      <PackageReference Include="Streamiz.Kafka.Net" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Kafka.Library\Kafka.Library.csproj" />

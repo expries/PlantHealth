@@ -5,5 +5,7 @@
   <ItemGroup>
     <PackageVersion Include="AutoBogus" Version="2.13.1" />
     <PackageVersion Include="Confluent.Kafka" Version="2.0.2" />
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageVersion Include="Streamiz.Kafka.Net" Version="1.4.2" />
   </ItemGroup>
 </Project>
