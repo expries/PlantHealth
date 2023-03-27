@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Confluent.Kafka" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PlantHealth.Domain\PlantHealth.Domain.csproj" />
+  </ItemGroup>
+</Project>

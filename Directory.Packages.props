@@ -1,9 +1,17 @@
 <Project>
-  <PropertyGroup>
-    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageVersion Include="AutoMapper" Version="12.0.1" />
-    <PackageVersion Include="Lamar" Version="10.0.2" />
-  </ItemGroup>
+	<PropertyGroup>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageVersion Include="AutoMapper" Version="12.0.1"/>
+		<PackageVersion Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0"/>
+		<PackageVersion Include="Confluent.Kafka" Version="2.0.2"/>
+		<PackageVersion Include="Microsoft.EntityFrameworkCore" Version="7.0.4"/>
+		<PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0"/>
+		<PackageVersion Include="MongoDB.Bson" Version="2.19.0"/>
+		<PackageVersion Include="MongoDB.Driver" Version="2.19.0"/>
+		<PackageVersion Include="MongoDB.Driver.Core" Version="2.19.0"/>
+		<PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="7.0.4"/>
+		<PackageVersion Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+	</ItemGroup>
 </Project>
