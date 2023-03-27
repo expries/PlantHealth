@@ -55,10 +55,10 @@ builder.Services.AddSingleton<IMongoClient>(provider =>
 
 builder.Services.AddTransient<SensorDataContext>();
 
-builder.Services.AddHostedService<DataWorker>();
-
 builder.Services.AddAutoMapper(config =>
                                    config.AddMaps(Assembly.GetAssembly(typeof(SensorDataProfile))));
+
+builder.Services.AddHostedService<DataWorker>();
 
 WebApplication app = builder.Build();
 

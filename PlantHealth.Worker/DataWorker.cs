@@ -26,6 +26,9 @@ public class DataWorker : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken cancellationToken)
     {
+        // If I do not add following line, the code stops working here
+        await Task.Yield();
+
         while (!cancellationToken.IsCancellationRequested)
         {
             SensorData sensorData = await _sensorDataConsumer.GetSensorDataAsync(cancellationToken);

@@ -5,7 +5,7 @@ using Confluent.Kafka;
 
 using PlantHealth.Domain.Interfaces;
 using PlantHealth.Domain.Kafka;
-using PlantHealth.Worker.Serializer;
+using PlantHealth.Kafka.Serializer;
 
 namespace PlantHealth.Kafka;
 

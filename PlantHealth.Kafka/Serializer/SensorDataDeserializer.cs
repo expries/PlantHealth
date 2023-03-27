@@ -6,7 +6,7 @@ using Confluent.Kafka;
 
 using PlantHealth.Domain.Kafka;
 
-namespace PlantHealth.Worker.Serializer;
+namespace PlantHealth.Kafka.Serializer;
 
 public class SensorDataDeserializer : IDeserializer<SensorData>
 {

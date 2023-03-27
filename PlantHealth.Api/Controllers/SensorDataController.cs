@@ -18,7 +18,8 @@ public class SensorDataController : ControllerBase
     private readonly ILogger<SensorDataController> _logger;
     private readonly ISensorDataService _sensorDataService;
 
-    public SensorDataController(ILogger<SensorDataController> logger, 
+    public SensorDataController(
+        ILogger<SensorDataController> logger,
         ISensorDataService sensorDataService)
     {
         _logger = logger;
