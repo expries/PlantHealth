@@ -34,15 +34,15 @@ public class SensorDataController : ControllerBase
         return Ok(sensorData.Select(ConvertToDto));
     }
 
-    [HttpGet("{id}")]
-    public async Task<ActionResult<SensorDataDto>> Get(string id)
+    [HttpGet("{serialNumber}")]
+    public async Task<ActionResult<IReadOnlyCollection<SensorDataDto>>> Get(string serialNumber)
     {
-        SensorDataModel? sensorData = await _sensorDataService.GetSensorDataAsync(id);
+        IReadOnlyCollection<SensorDataModel> sensorData = await _sensorDataService.GetSensorDataBySerialNumberAsync(serialNumber);
 
         if (sensorData is null)
             return NotFound();
 
-        return Ok(ConvertToDto(sensorData));
+        return Ok(sensorData.Select(ConvertToDto));
     }
 
     private SensorDataDto ConvertToDto(SensorDataModel sensorData)
